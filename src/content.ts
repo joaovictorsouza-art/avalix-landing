@@ -15,7 +15,7 @@ export const contato = {
   // Mensagem que já vem escrita quando a pessoa abre o WhatsApp
   whatsappMensagem: 'Olá! Vim pelo site da Avalix e quero saber mais.',
   instagramUsuario: 'aavalix',
-  cidade: '[CIDADE]', // TODO: ex.: "Salvador, BA"
+  cidade: 'Salvador, BA',
 }
 
 /** Monta o link do WhatsApp. Passe uma mensagem para personalizar por botão. */
