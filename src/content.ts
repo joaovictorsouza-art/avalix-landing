@@ -9,9 +9,9 @@
 // ---------- Contatos ----------
 export const contato = {
   // Número do WhatsApp só com dígitos: 55 + DDD + número. Ex.: 5571988887777
-  whatsappNumero: '5571999999999', // TODO: trocar pelo número real
+  whatsappNumero: '5571993964051',
   // Como o número aparece escrito no rodapé
-  whatsappExibicao: '(71) 99999-9999', // TODO: trocar pelo número real
+  whatsappExibicao: '(71) 99396-4051',
   // Mensagem que já vem escrita quando a pessoa abre o WhatsApp
   whatsappMensagem: 'Olá! Vim pelo site da Avalix e quero saber mais.',
   instagramUsuario: 'aavalix',
