@@ -1,9 +1,15 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/",
       "has": [{ "type": "host", "value": "avalix-landing.vercel.app" }],
-      "destination": "https://nexusinova.vercel.app/:path*",
+      "destination": "https://nexusinova.vercel.app/",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [{ "type": "host", "value": "avalix-landing.vercel.app" }],
+      "destination": "https://nexusinova.vercel.app/:path+",
       "permanent": true
     }
   ]
