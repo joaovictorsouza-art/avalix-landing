@@ -1,6 +1,6 @@
-# Avalix: landing page
+# Nexus: landing page
 
-Landing page da Avalix em **React + Vite + Tailwind CSS**.
+Landing page da Nexus em **React + Vite + Tailwind CSS**.
 
 ## Rodar no computador
 
@@ -13,32 +13,23 @@ npm run dev
 
 Abra o endereço que aparecer no terminal (normalmente http://localhost:5173).
 
-Para gerar a versão final (pasta `dist/`, pronta para publicar na Vercel, Netlify etc.):
+Para gerar a versão final (pasta `dist/`, pronta para publicar na Netlify, Vercel etc.):
 
 ```bash
 npm run build
 npm run preview   # opcional: confere a versão final no navegador
 ```
 
-## Onde editar o conteúdo
+## Onde editar
 
-**Tudo o que é texto fica em `src/content.ts`:** títulos, preços, número do WhatsApp, Instagram, cidade, clientes e fotos. Não é preciso mexer no layout.
+**Tudo o que é texto fica em `src/content.ts`:** preços, WhatsApp, Instagram, e-mail, títulos, clientes e fotos. Não é preciso mexer no layout.
 
-Antes de publicar, troque o que está marcado com `TODO` nesse arquivo:
+- **Preços:** objeto `PRECOS`, no topo do arquivo. Só números: `79.9` aparece como "R$ 79,90".
+- **Contatos:** objeto `contato`.
+- **Oferta do site (diagnóstico grátis):** objeto `oferta`.
+- **O que falta confirmar:** procure por `PENDENTE` no projeto.
 
-- `contato.whatsappNumero`: só dígitos, com 55 + DDD (ex.: `5571988887777`)
-- `contato.whatsappExibicao`: como o número aparece no rodapé
-- `contato.cidade`
-
-### Card reservado: "Cartão NFC com logotipo"
-
-Fica em `precos.cartaoComLogo`, dentro de `src/content.ts`:
-
-- `disponivel: false` mostra **"Em breve"** no lugar do preço (é o que está agora)
-- para lançar: preencha `preco` (ex.: `"R$ 120"`) e mude `disponivel` para `true`
-- para esconder o card: `mostrar: false`
-
-No layout, o card está marcado com um comentário em `src/sections/Precos.tsx`.
+O telefone e o Instagram também aparecem nos dados para o Google, em `index.html`. Se mudarem, atualize lá também.
 
 ### Fotos
 
@@ -48,39 +39,49 @@ As imagens ficam em `public/images/`. Para trocar ou adicionar, coloque o arquiv
 
 ```
 src/
-  content.ts            ← textos, preços e contatos
+  content.ts            ← preços, contatos e textos
   App.tsx               ← ordem das seções
-  index.css             ← estilos base (botões, foco, títulos)
+  index.css             ← tokens da marca (cores, raios, sombras) e estilos base
   components/
+    Cabecalho.tsx       ← abertura das seções
+    DemoNfc.tsx         ← animação do celular na placa
     Icons.tsx           ← ícones e estrelas em SVG
-    Logo.tsx
+    Logo.tsx            ← símbolo e logo da Nexus
     WhatsAppFlutuante.tsx
   sections/
     Hero.tsx
     Problema.tsx
+    Servicos.tsx        ← os 5 pilares
     ComoFunciona.tsx
+    ParaQuem.tsx
+    Precos.tsx          ← pacotes
+    ComecePorAqui.tsx   ← demonstração do NFC
     Calculadora.tsx     ← "Faça a conta"
-    Precos.tsx
+    Avulsos.tsx
     Clientes.tsx
+    Casos.tsx
+    PorQue.tsx
+    Duvidas.tsx
     CTA.tsx
     Footer.tsx
 public/images/          ← fotos dos clientes
-tailwind.config.js      ← cores da marca e animações
+tailwind.config.js      ← nomes das cores e animações
 ```
 
-## Cores (tailwind.config.js)
+## Cores (`:root` em src/index.css)
 
 | Nome | Cor | Uso |
 | --- | --- | --- |
-| `navy` | `#0B1F3A` | fundo principal |
-| `accent` | `#2F80ED` | azul de destaque |
-| `accent-strong` | `#1C6BD6` | fundo dos botões (contraste com texto branco) |
-| `white` | `#FFFFFF` | |
-| `star` | `#FBBC04` | estrelas |
-| `mist` | `#F1F4F8` | seções claras |
+| `preto` | `#05030C` | fundo principal e texto |
+| `roxo-escuro` | `#351886` | seção "Como funciona" |
+| `roxo` | `#6532EF` | botões e destaques em fundo claro |
+| `lilas` | `#9168F2` | destaques em fundo escuro |
+| `lavanda` | `#E6DDF0` | texto secundário em fundo escuro |
+| `nevoa` | `#F3F1F9` | seções claras (derivada) |
+| `estrela` | `#FBBC04` | só nas estrelas de avaliação do Google |
 
 ## Acessibilidade e animação
 
 - As animações respeitam o modo "reduzir movimento" do celular/computador.
-- Botões e links mostram um contorno amarelo quando focados pelo teclado.
+- Botões e links mostram um contorno lilás quando focados pelo teclado.
 - A busca da seção "Problema" é um **exemplo ilustrativo**, com legenda dizendo isso.
