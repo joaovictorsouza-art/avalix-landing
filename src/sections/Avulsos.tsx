@@ -54,7 +54,7 @@ export default function Avulsos() {
             href={linkWhatsApp(avulsos.proposta.mensagemWhatsApp)}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn min-h-[60px] w-full bg-white px-[30px] text-preto sm:w-auto sm:text-lg"
+            className="btn min-h-[60px] w-full bg-white px-4 text-preto sm:w-auto sm:px-[30px] sm:text-lg"
           >
             <Chat />
             {avulsos.proposta.botao}
