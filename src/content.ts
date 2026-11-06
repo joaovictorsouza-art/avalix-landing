@@ -51,7 +51,8 @@ export function linkWhatsApp(mensagem: string = contato.whatsappMensagem) {
 export const linkInstagram = `https://instagram.com/${contato.instagramUsuario}`
 
 // ---------- Oferta de entrada ----------
-// PENDENTE: confirmar com João o diagnóstico grátis. Para trocar a oferta do site inteiro, edite só aqui.
+// Diagnóstico grátis: conversa sobre como aplicar o digital no negócio (não é o relatório pago de Instagram).
+// Para trocar a oferta do site inteiro, edite só aqui.
 export const oferta = {
   botao: 'Quero um diagnóstico grátis',
   mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero um diagnóstico grátis do meu Google e Instagram.',
@@ -131,7 +132,7 @@ export const comoFunciona = {
     {
       icone: 'diagnostico' as const,
       titulo: 'Diagnóstico',
-      texto: 'Olhamos seu Google e seu Instagram, com análise feita por IA, e mostramos o que está travando.',
+      texto: 'Olhamos seu Google e seu Instagram e mostramos como aplicar o digital no seu negócio.',
     },
     {
       icone: 'implantacao' as const,
@@ -230,9 +231,9 @@ export const avulsos = {
     avulso('Totem NFC personalizado', 'Totem de balcão com a sua marca.', reais(PRECOS.avulsos.totemPersonalizado)),
     avulso('Criação de perfil no Google', 'Cadastro completo, categorias, serviços, horários, fotos e acompanhamento da verificação.', reais(PRECOS.avulsos.criacaoGoogle)),
     avulso('Otimização de perfil no Google', 'Auditoria, correções, palavras-chave, descrição, fotos e plano de avaliações.', reais(PRECOS.avulsos.otimizacaoGoogle)),
-    avulso('Diagnóstico de Instagram via IA', 'Bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.avulsos.diagnosticoInstagram)),
+    avulso('Diagnóstico de Instagram via IA', 'Análise do perfil feita com IA: bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.avulsos.diagnosticoInstagram)),
     avulso('Gestão completa de Instagram', 'A partir de 2 Reels + 4 carrosséis/mês e stories 5x/semana.', `${reais(PRECOS.avulsos.gestaoInstagram)}/mês`),
-    avulso('Tráfego pago', 'Campanhas de anúncios, criativos, otimização semanal e relatório.', `${reais(PRECOS.avulsos.trafego)}/mês`),
+    avulso('Tráfego pago', 'Campanhas no Meta e no Google, criativos, otimização semanal e relatório.', `${reais(PRECOS.avulsos.trafego)}/mês`),
     avulso('Landing page', 'Textos, botão de WhatsApp, Pixel e 1 ano de hospedagem.', reais(PRECOS.avulsos.landingPage)),
     avulso('Automação com IA', 'Soluções sob medida para atendimento e processos.', 'Sob consulta'),
   ],
@@ -290,7 +291,6 @@ export const porQue = {
   titulo: 'Um parceiro só, em vez de quatro fornecedores.',
   motivos: [
     { titulo: 'Atendimento presencial em Salvador', texto: 'A gente vai até a sua loja.' },
-    { titulo: 'Preços abaixo da média do mercado', texto: 'Tudo na tabela, sem surpresa.' },
     { titulo: 'Tecnologia própria', texto: 'NFC e IA a serviço do seu negócio.' },
     { titulo: 'Tudo no mesmo lugar', texto: 'Google, Instagram, anúncios e site conversando entre si.' },
   ],
@@ -315,7 +315,7 @@ export const duvidas = {
   itens: [
     {
       pergunta: 'Tem fidelidade?',
-      resposta: 'Os pacotes montados para a sua empresa têm contrato mínimo de 3 meses. Os serviços avulsos são contratados à parte.',
+      resposta: 'Não. A Nexus não tem fidelidade.',
     },
     {
       pergunta: 'A verba dos anúncios está inclusa?',
@@ -327,7 +327,7 @@ export const duvidas = {
     },
     {
       pergunta: 'Preciso gravar vídeo?',
-      resposta: '[PLACEHOLDER: resposta a confirmar com o João]', // PENDENTE
+      resposta: 'Não. A gente faz tudo. Só precisamos da sua colaboração no dia a dia do negócio.',
     },
     {
       pergunta: 'Atendem fora de Salvador?',
