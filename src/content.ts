@@ -8,14 +8,8 @@
  */
 
 // Preços Nexus 2026 — edite aqui
-// Só números: 79.9 aparece como "R$ 79,90" e 1490 como "R$ 1.490". Implantação 0 aparece como "GRÁTIS".
+// Só números: 79.9 aparece como "R$ 79,90" e 590 como "R$ 590".
 export const PRECOS = {
-  pacotes: {
-    essencial: { mensalidade: 497, implantacao: 197 },
-    presenca: { mensalidade: 897, implantacao: 297 },
-    presencaCompleta: { mensalidade: 997, implantacao: 0 },
-    performance: { mensalidade: 1490, implantacao: 0 },
-  },
   avulsos: {
     cartaoGoogle: 79.9,
     cartaoPersonalizado: 119.9,
@@ -67,7 +61,7 @@ export const oferta = {
 export const menu = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Como funciona', href: '#como-funciona' },
-  { label: 'Pacotes', href: '#pacotes' },
+  { label: 'Preços', href: '#precos' },
   { label: 'Dúvidas', href: '#duvidas' },
 ]
 
@@ -78,7 +72,7 @@ export const hero = {
   tituloDestaque: 'Todo mês.',
   subtitulo:
     'Google, Instagram, anúncios, site e automação com IA nas mãos de um parceiro só, aqui em Salvador. Você cuida do balcão. A gente cuida do digital.',
-  linkSecundario: 'Ver pacotes',
+  linkSecundario: 'Ver preços',
   conexoes: ['Google', 'Instagram', 'Anúncios', 'Site', 'IA'],
 }
 
@@ -142,7 +136,7 @@ export const comoFunciona = {
     {
       icone: 'implantacao' as const,
       titulo: 'Implantação',
-      texto: 'Deixamos a base pronta: perfil no Google, NFC no balcão e landing page, conforme o pacote.',
+      texto: 'Deixamos a base pronta: perfil no Google, NFC no balcão e landing page, conforme o que combinarmos com você.',
     },
     {
       icone: 'gestao' as const,
@@ -152,7 +146,7 @@ export const comoFunciona = {
     {
       icone: 'reuniao' as const,
       titulo: 'Reunião de resultados',
-      texto: 'Sentamos com você para ver o que mudou. Mensal, ou quinzenal no Performance.',
+      texto: 'Sentamos com você para ver o que mudou e decidir os próximos passos.',
     },
   ],
 }
@@ -168,69 +162,6 @@ export const paraQuem = {
     { icone: 'loja' as const, nome: 'Lojas e varejo' },
     { icone: 'servicos' as const, nome: 'Prestadores de serviço' },
   ],
-}
-
-// ---------- Pacotes ----------
-export type ItemPacote = { texto: string; inclui: boolean }
-
-function itensPacote(nfc: string, trafego: string, landing: boolean, reuniao: string): ItemPacote[] {
-  return [
-    { texto: nfc, inclui: true },
-    { texto: 'Criação ou otimização do Google', inclui: true },
-    { texto: 'Diagnóstico de Instagram via IA', inclui: true },
-    { texto: 'Gestão completa de Instagram', inclui: true },
-    { texto: trafego ? `Tráfego pago: ${trafego}` : 'Tráfego pago', inclui: Boolean(trafego) },
-    { texto: 'Landing page', inclui: landing },
-    { texto: `Reunião de resultados ${reuniao}`, inclui: true },
-  ]
-}
-
-function mensagemPacote(nome: string) {
-  return `Olá! Vi o site da Nexus e quero saber mais sobre o pacote ${nome}.`
-}
-
-const economiaCompleta = PRECOS.pacotes.presencaCompleta.mensalidade - PRECOS.pacotes.presenca.mensalidade
-
-export const pacotes = {
-  rotulo: 'Pacotes',
-  titulo: 'Um parceiro, um preço por mês.',
-  aviso:
-    'Contrato mínimo de 3 meses. Verba de anúncios paga pelo cliente direto ao Meta/Google. Automação com IA pode ser somada a qualquer pacote.',
-  seloDestaque: 'Recomendado',
-  // Ordem de exibição, da esquerda para a direita
-  itens: [
-    {
-      nome: 'Essencial',
-      precos: PRECOS.pacotes.essencial,
-      itens: itensPacote('NFC: cartão Google', '', false, 'mensal'),
-      mensagemWhatsApp: mensagemPacote('Essencial'),
-    },
-    {
-      nome: 'Presença',
-      precos: PRECOS.pacotes.presenca,
-      itens: itensPacote('NFC: cartão personalizado', '', false, 'mensal'),
-      mensagemWhatsApp: mensagemPacote('Presença'),
-    },
-    {
-      nome: 'Presença Completa',
-      precos: PRECOS.pacotes.presencaCompleta,
-      itens: itensPacote('NFC: totem personalizado', 'Meta', true, 'mensal'),
-      mensagemWhatsApp: mensagemPacote('Presença Completa'),
-      destaque: true,
-      argumento: `Por só ${reais(economiaCompleta)} a mais que o Presença, você leva tráfego pago, landing page, totem personalizado e não paga implantação.`,
-    },
-    {
-      nome: 'Performance',
-      precos: PRECOS.pacotes.performance,
-      // PENDENTE: confirmar com João se o Google Ads já está operacional antes de destacar
-      itens: itensPacote('NFC: totem + 2 cartões', 'Meta + Google', true, 'quinzenal'),
-      mensagemWhatsApp: mensagemPacote('Performance'),
-    },
-  ],
-  monteOSeu: {
-    botao: 'Monte o seu',
-    mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero começar só com um serviço avulso.',
-  },
 }
 
 // ---------- Comece por aqui (demonstração do NFC) ----------
@@ -282,10 +213,17 @@ function avulso(nome: string, descricao: string, preco: string, comecePorAqui = 
 }
 
 export const avulsos = {
-  rotulo: 'Serviços avulsos',
-  titulo: 'Quer começar pequeno? Pode.',
+  rotulo: 'Serviços e preços',
+  titulo: 'Preços sem surpresa.',
   seloComece: 'Comece por aqui',
   botao: 'Quero este',
+  aviso: 'Verba de anúncios paga pelo cliente direto ao Meta/Google.',
+  proposta: {
+    titulo: 'Precisa de mais de um serviço?',
+    texto: 'Montamos propostas exclusivas, com alto custo-benefício na compra de mais de um serviço. Cada pacote é feito sob medida para a sua empresa. Fale com a gente.',
+    botao: 'Montar minha proposta',
+    mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero uma proposta exclusiva com mais de um serviço.',
+  },
   itens: [
     avulso('Cartão NFC Google', 'Avaliação no Google por aproximação, link testado no balcão.', reais(PRECOS.avulsos.cartaoGoogle), true),
     avulso('Cartão NFC personalizado', 'Cartão com a identidade visual do seu negócio.', reais(PRECOS.avulsos.cartaoPersonalizado)),
@@ -364,7 +302,7 @@ export const porQue = {
     },
     nexus: {
       titulo: 'Com a Nexus',
-      itens: ['Um parceiro', 'Uma mensalidade', 'Reunião de resultados'],
+      itens: ['Um parceiro', 'Uma proposta sob medida', 'Reunião de resultados'],
       resumo: 'Você sabe com quem falar e o que está sendo feito.',
     },
   },
@@ -377,7 +315,7 @@ export const duvidas = {
   itens: [
     {
       pergunta: 'Tem fidelidade?',
-      resposta: 'Os pacotes têm contrato mínimo de 3 meses. Os serviços avulsos são contratados à parte.',
+      resposta: 'Os pacotes montados para a sua empresa têm contrato mínimo de 3 meses. Os serviços avulsos são contratados à parte.',
     },
     {
       pergunta: 'A verba dos anúncios está inclusa?',
@@ -401,7 +339,7 @@ export const duvidas = {
     },
     {
       pergunta: 'Posso começar só com um serviço?',
-      resposta: 'Pode. Dá para começar pelo cartão NFC ou pela otimização do perfil no Google, por exemplo. Depois, se fizer sentido, a gente conversa sobre o acompanhamento mensal.',
+      resposta: 'Pode. Dá para começar pelo cartão NFC ou pela otimização do perfil no Google, por exemplo. Depois, se fizer sentido, a gente monta um pacote para a sua empresa.',
     },
   ],
 }

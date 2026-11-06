@@ -107,7 +107,7 @@ export default function Hero() {
                 <Chat />
                 {oferta.botao}
               </a>
-              <a href="#pacotes" className="btn-contorno min-h-[60px] w-full text-white sm:w-auto">
+              <a href="#precos" className="btn-contorno min-h-[60px] w-full text-white sm:w-auto">
                 {hero.linkSecundario} ›
               </a>
             </div>

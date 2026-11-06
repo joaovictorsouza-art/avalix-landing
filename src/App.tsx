@@ -3,7 +3,6 @@ import Problema from './sections/Problema'
 import Servicos from './sections/Servicos'
 import ComoFunciona from './sections/ComoFunciona'
 import ParaQuem from './sections/ParaQuem'
-import Precos from './sections/Precos'
 import ComecePorAqui from './sections/ComecePorAqui'
 import Calculadora from './sections/Calculadora'
 import Avulsos from './sections/Avulsos'
@@ -24,7 +23,6 @@ export default function App() {
         <Servicos />
         <ComoFunciona />
         <ParaQuem />
-        <Precos />
         <ComecePorAqui />
         <Calculadora />
         <Avulsos />

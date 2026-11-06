@@ -54,10 +54,9 @@ src/
     Servicos.tsx        ← os 5 pilares
     ComoFunciona.tsx
     ParaQuem.tsx
-    Precos.tsx          ← pacotes
     ComecePorAqui.tsx   ← demonstração do NFC
     Calculadora.tsx     ← "Faça a conta"
-    Avulsos.tsx
+    Avulsos.tsx         ← preços e chamada para proposta exclusiva
     Clientes.tsx
     Casos.tsx
     PorQue.tsx
