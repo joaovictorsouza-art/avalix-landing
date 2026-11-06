@@ -10,24 +10,24 @@ export default function Calculadora() {
   const seisMeses = porMes * 6
 
   return (
-    <section id="conta" className="scroll-mt-4 bg-nevoa px-4 py-24 sm:px-6 lg:py-40">
+    <section id="conta" className="scroll-mt-4 bg-nevoa px-4 py-20 sm:px-6 lg:py-32">
       <div className="container-site grid items-stretch gap-12 lg:grid-cols-2">
         <div className="flex flex-col gap-9">
           <h2 className="titulo-lg">{c.titulo}</h2>
 
           <div className="flex flex-col gap-2">
-            <label htmlFor="clientes" className="text-[19px] font-semibold">
+            <label htmlFor="clientes-por-dia" className="text-[19px] font-semibold">
               {c.rotuloClientes} <span className="font-display font-bold">{clientes}</span>
             </label>
             <input
-              id="clientes"
+              id="clientes-por-dia"
               type="range"
               min={c.clientesMin}
               max={c.clientesMax}
               step={c.clientesPasso}
               value={clientes}
               onChange={(e) => setClientes(Number(e.target.value))}
-              className="h-11 w-full cursor-pointer roxo-roxo"
+              className="h-11 w-full cursor-pointer accent-roxo"
             />
           </div>
 
@@ -60,7 +60,7 @@ export default function Calculadora() {
             <span className="text-[22px] font-semibold">{c.resultado}</span>
           </div>
           <p className="text-[20px] leading-[1.4] text-lavanda md:text-[22px]">
-            Em 6 meses, são <strong className="font-bold text-white">{seisMeses} avaliações</strong> a mais no seu Google.
+            Em 6 meses, podem ser <strong className="font-bold text-white">{seisMeses} avaliações</strong> a mais no seu Google.
           </p>
           <p className="text-[15px] leading-normal text-tinta-fraca">
             Estimativa: {clientes} clientes por dia, {c.diasAbertosNoMes} dias abertos no mês, 1 em cada {taxa} avaliando.

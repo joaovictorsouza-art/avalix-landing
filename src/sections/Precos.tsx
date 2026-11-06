@@ -1,91 +1,87 @@
-import { linkWhatsApp, precos, type ItemPreco } from '../content'
+import { linkWhatsApp, pacotes, reais } from '../content'
+import { Check } from '../components/Icons'
+import Cabecalho from '../components/Cabecalho'
 
-function LinhaPreco({ item }: { item: ItemPreco }) {
-  const destaque = item.destaque
-  const precoEhValor = item.preco.startsWith('R$')
+type Pacote = (typeof pacotes.itens)[number]
+
+function CardPacote({ pacote }: { pacote: Pacote }) {
+  const destaque = 'destaque' in pacote && pacote.destaque
+  const { mensalidade, implantacao } = pacote.precos
 
   return (
-    <div
-      className={`flex flex-wrap items-center gap-x-10 gap-y-5 rounded-card ${
-        destaque ? 'bg-preto p-7 text-white sm:p-10' : 'bg-nevoa px-7 py-7 sm:px-10 sm:py-8'
+    <li
+      className={`flex flex-col gap-6 rounded-card p-7 ${
+        destaque ? 'border border-lilas bg-preto text-white shadow-brilho xl:-my-4 xl:py-11' : 'bg-white'
       }`}
     >
-      <div className="flex flex-[1_1_300px] flex-col gap-1.5">
-        <h3 className={`font-display font-bold tracking-[-0.02em] ${destaque ? 'text-[26px] sm:text-[30px]' : 'text-[22px] sm:text-2xl'}`}>
-          {item.nome}
-        </h3>
-        <p className={`text-[17px] leading-normal ${destaque ? 'text-lavanda sm:text-lg' : ''}`}>{item.descricao}</p>
+      <div className="flex flex-col gap-3">
+        {destaque && <p className="etiqueta">{pacotes.seloDestaque}</p>}
+        <h3 className="font-display text-2xl font-bold tracking-[-0.02em]">{pacote.nome}</h3>
+        <p className="font-display text-[44px] font-bold leading-none tracking-[-0.04em]">
+          {reais(mensalidade)}
+          <span className={`text-base font-medium tracking-normal ${destaque ? 'text-lavanda' : 'text-tinta-suave'}`}>/mês</span>
+        </p>
+        <p className={`text-[15px] font-medium ${destaque ? 'text-lavanda' : 'text-tinta-suave'}`}>
+          Implantação: {implantacao === 0 ? <strong className={destaque ? 'text-white' : 'text-roxo'}>GRÁTIS</strong> : reais(implantacao)}
+        </p>
       </div>
-      <p
-        className={`font-display tracking-[-0.04em] ${
-          precoEhValor
-            ? destaque
-              ? 'text-[52px] font-bold leading-none sm:text-[64px]'
-              : 'text-[40px] font-bold sm:text-[44px]'
-            : 'text-[22px] font-bold tracking-[-0.02em]'
-        }`}
-      >
-        {item.preco}
-      </p>
+
+      <ul className="flex flex-1 list-none flex-col gap-3 p-0 text-[15px] leading-snug">
+        {pacote.itens.map((item) => (
+          <li key={item.texto} className={`flex gap-2.5 ${item.inclui ? '' : destaque ? 'text-tinta-fraca' : 'text-tinta-suave'}`}>
+            {item.inclui ? (
+              <Check className={`mt-0.5 h-4 w-4 shrink-0 ${destaque ? 'text-lilas' : 'text-roxo'}`} />
+            ) : (
+              <span aria-hidden="true" className="w-4 shrink-0 text-center">
+                —
+              </span>
+            )}
+            <span>
+              {item.texto}
+              {!item.inclui && <span className="sr-only"> (não incluso)</span>}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      {'argumento' in pacote && pacote.argumento && (
+        <p className="border-l-2 border-lilas pl-4 text-[15px] font-medium leading-normal">{pacote.argumento}</p>
+      )}
+
       <a
-        href={linkWhatsApp(item.mensagemWhatsApp)}
+        href={linkWhatsApp(pacote.mensagemWhatsApp)}
         target="_blank"
         rel="noopener noreferrer"
-        className={`btn w-full px-6 sm:w-auto ${destaque ? 'min-h-14 bg-roxo text-white' : 'min-h-[52px] bg-preto text-white'}`}
+        className={`btn min-h-14 px-2 text-[15px] ${destaque ? 'bg-roxo text-white' : 'bg-preto text-white'}`}
       >
-        {item.botao}
+        Quero o {pacote.nome}
       </a>
-    </div>
+    </li>
   )
 }
 
 export default function Precos() {
-  const logo = precos.cartaoComLogo
-  const [principal, ...demais] = precos.itens
-
   return (
-    <section id="precos" className="scroll-mt-4 bg-white px-4 py-24 sm:px-6 lg:py-40">
+    <section id="pacotes" className="scroll-mt-4 bg-nevoa px-4 py-20 sm:px-6 lg:py-32">
       <div className="container-site flex flex-col gap-14">
-        <h2 className="titulo-lg">{precos.titulo}</h2>
+        <Cabecalho rotulo={pacotes.rotulo} titulo={pacotes.titulo} />
 
-        <div className="flex flex-col gap-2.5">
-          <LinhaPreco item={principal} />
-
-          {/*
-            ============================================================
-            CARD RESERVADO — "Cartão NFC com logotipo"
-            Conteúdo em src/content.ts → precos.cartaoComLogo
-            - disponivel: false → mostra "Em breve" no lugar do preço
-            - disponivel: true  → mostra o preço preenchido em `preco`
-            - mostrar: false    → esconde o card
-            ============================================================
-          */}
-          {logo.mostrar && (
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-5 rounded-card bg-nevoa px-7 py-7 sm:px-10 sm:py-8">
-              <div className="flex flex-[1_1_300px] flex-col gap-1.5">
-                <h3 className="font-display text-[22px] font-bold tracking-[-0.02em] sm:text-2xl">{logo.nome}</h3>
-                <p className="text-[17px] leading-normal">{logo.descricao}</p>
-              </div>
-              {logo.disponivel && logo.preco ? (
-                <p className="font-display text-[40px] font-bold tracking-[-0.04em] sm:text-[44px]">{logo.preco}</p>
-              ) : (
-                <p className="font-display text-[22px] font-bold tracking-[-0.02em] text-tinta-suave">{logo.textoEmBreve}</p>
-              )}
-              <a
-                href={linkWhatsApp(logo.mensagemWhatsApp)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn min-h-[52px] w-full bg-preto px-6 text-white sm:w-auto"
-              >
-                {logo.botao}
-              </a>
-            </div>
-          )}
-          {/* ===================== fim do card reservado ===================== */}
-
-          {demais.map((item) => (
-            <LinhaPreco key={item.nome} item={item} />
+        <ul className="grid list-none items-stretch gap-4 p-0 md:grid-cols-2 xl:grid-cols-4">
+          {pacotes.itens.map((pacote) => (
+            <CardPacote key={pacote.nome} pacote={pacote} />
           ))}
+        </ul>
+
+        <div className="flex flex-wrap items-center justify-between gap-6">
+          <p className="max-w-[60ch] text-[15px] leading-relaxed text-tinta-suave">{pacotes.aviso}</p>
+          <a
+            href={linkWhatsApp(pacotes.monteOSeu.mensagemWhatsApp)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-contorno min-h-14 w-full border-roxo text-roxo sm:w-auto"
+          >
+            {pacotes.monteOSeu.botao} ›
+          </a>
         </div>
       </div>
     </section>
