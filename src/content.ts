@@ -18,7 +18,7 @@ export const PRECOS = {
     otimizacaoGoogle: 59.9,
     diagnosticoInstagram: 39.9,
     gestaoInstagram: 590,
-    trafegoMeta: 590,
+    trafego: 590,
     landingPage: 697,
   },
 }
@@ -232,7 +232,7 @@ export const avulsos = {
     avulso('Otimização de perfil no Google', 'Auditoria, correções, palavras-chave, descrição, fotos e plano de avaliações.', reais(PRECOS.avulsos.otimizacaoGoogle)),
     avulso('Diagnóstico de Instagram via IA', 'Bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.avulsos.diagnosticoInstagram)),
     avulso('Gestão completa de Instagram', 'A partir de 2 Reels + 4 carrosséis/mês e stories 5x/semana.', `${reais(PRECOS.avulsos.gestaoInstagram)}/mês`),
-    avulso('Tráfego pago Meta Ads', 'Campanhas, 4 criativos, otimização semanal e relatório.', `${reais(PRECOS.avulsos.trafegoMeta)}/mês`),
+    avulso('Tráfego pago', 'Campanhas de anúncios, criativos, otimização semanal e relatório.', `${reais(PRECOS.avulsos.trafego)}/mês`),
     avulso('Landing page', 'Textos, botão de WhatsApp, Pixel e 1 ano de hospedagem.', reais(PRECOS.avulsos.landingPage)),
     avulso('Automação com IA', 'Soluções sob medida para atendimento e processos.', 'Sob consulta'),
   ],
