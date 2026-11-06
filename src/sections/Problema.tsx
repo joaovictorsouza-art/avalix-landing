@@ -1,15 +1,16 @@
 import { problema } from '../content'
 import { Search, Stars } from '../components/Icons'
+import Cabecalho from '../components/Cabecalho'
 
 export default function Problema() {
   const { concorrente, voce } = problema
 
   return (
-    <section className="bg-white px-4 py-24 sm:px-6 lg:py-40">
+    <section className="bg-white px-4 py-20 sm:px-6 lg:py-32">
       <div className="container-site grid items-center gap-14 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-7">
-          <h2 className="titulo-lg">{problema.titulo}</h2>
-          <p className="max-w-[46ch] text-[19px] leading-relaxed md:text-xl">{problema.texto}</p>
+          <Cabecalho rotulo={problema.rotulo} titulo={problema.titulo} />
+          <p className="max-w-[46ch] text-[18px] leading-relaxed md:text-xl">{problema.texto}</p>
         </div>
 
         {/* Exemplo ilustrativo de resultado de busca */}

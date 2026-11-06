@@ -68,29 +68,103 @@ export function Nfc({ className = 'h-24 w-24', animado = false }: IconProps & { 
   )
 }
 
-export function IconePasso({ tipo, className = 'h-14 w-14' }: IconProps & { tipo: 'celular' | 'avaliacao' | 'grafico' }) {
+
+/** Ícones de linha dos serviços, das etapas e dos nichos. */
+const ICONES = {
+  google: (
+    <>
+      <path d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21z" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </>
+  ),
+  instagram: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.6" />
+    </>
+  ),
+  anuncios: (
+    <>
+      <path d="M4 10v4a1 1 0 0 0 1 1h3l9 4.5v-15L8 9H5a1 1 0 0 0-1 1z" />
+      <path d="M8 15l1.5 5h2.5l-1.3-4" />
+      <path d="M20 10v4" />
+    </>
+  ),
+  site: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2.5" />
+      <path d="M3 9h18" />
+      <path d="M6.5 6.5h.01M9.5 6.5h.01" />
+    </>
+  ),
+  ia: (
+    <>
+      <path d="M11 3l1.9 5.6L18.5 10.5l-5.6 1.9L11 18l-1.9-5.6L3.5 10.5l5.6-1.9z" />
+      <path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" />
+    </>
+  ),
+  diagnostico: (
+    <>
+      <circle cx="11" cy="11" r="7" />
+      <path d="M20 20l-4-4" />
+      <path d="M8 11.5l2 2 3.5-4" />
+    </>
+  ),
+  implantacao: (
+    <>
+      <path d="M4 20h16" />
+      <path d="M6 20V9l6-5 6 5v11" />
+      <path d="M10 20v-6h4v6" />
+    </>
+  ),
+  gestao: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="2.5" />
+      <path d="M3 10h18M8 3v4M16 3v4" />
+      <path d="M8.5 15.5l2.2 2.2 4.8-4.7" />
+    </>
+  ),
+  reuniao: (
+    <>
+      <path d="M3 17l6-6 4 4 8-8" />
+      <path d="M15 7h6v6" />
+    </>
+  ),
+  barbearia: (
+    <>
+      <circle cx="6" cy="6.5" r="2.5" />
+      <circle cx="6" cy="17.5" r="2.5" />
+      <path d="M8 8l12 10M8 16L20 6" />
+    </>
+  ),
+  restaurante: (
+    <>
+      <path d="M7 3v7a2.5 2.5 0 0 1-5 0V3M4.5 3v18" transform="translate(2 0)" />
+      <path d="M17 21v-7h-2.5V7c0-2.5 1.2-4 2.5-4z" />
+    </>
+  ),
+  clinica: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="4" />
+      <path d="M12 8v8M8 12h8" />
+    </>
+  ),
+  loja: (
+    <>
+      <path d="M5 8h14l1 13H4z" />
+      <path d="M9 11V6.5a3 3 0 0 1 6 0V11" />
+    </>
+  ),
+  servicos: (
+    <path d="M14.5 6.5a4 4 0 0 1 5-1l-3 3 1.5 1.5 3-3a4 4 0 0 1-5.5 5L8 20a2 2 0 0 1-3-3l7.5-7.5a4 4 0 0 1 2-3z" />
+  ),
+}
+
+export function Icone({ tipo, className = 'h-10 w-10' }: IconProps & { tipo: keyof typeof ICONES }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className={className}>
-      {tipo === 'celular' && (
-        <>
-          <rect x="6" y="2.5" width="10" height="19" rx="2.5" />
-          <path d="M18.5 9a4 4 0 0 1 0 6" />
-          <path d="M20.8 7a7 7 0 0 1 0 10" />
-        </>
-      )}
-      {tipo === 'avaliacao' && (
-        <>
-          <rect x="3" y="4" width="18" height="16" rx="3" />
-          <path d="M7 12l2.2 2.2L13 10.5" />
-          <path d="M15.5 12H17" />
-        </>
-      )}
-      {tipo === 'grafico' && (
-        <>
-          <path d="M3 17l6-6 4 4 8-8" />
-          <path d="M15 7h6v6" />
-        </>
-      )}
+      {ICONES[tipo]}
     </svg>
   )
 }
