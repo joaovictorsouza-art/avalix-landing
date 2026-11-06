@@ -13,8 +13,8 @@ export default function Problema() {
         </div>
 
         {/* Exemplo ilustrativo de resultado de busca */}
-        <div className="flex flex-col gap-3.5 rounded-[28px] bg-mist p-5 sm:p-7">
-          <div className="flex min-h-[52px] items-center gap-3 rounded-full bg-white px-5 text-[17px] text-ink-soft">
+        <div className="flex flex-col gap-3.5 rounded-card bg-nevoa p-5 sm:p-7">
+          <div className="flex min-h-[52px] items-center gap-3 rounded-full bg-white px-5 text-[17px] text-tinta-suave">
             <Search />
             {problema.busca}
           </div>
@@ -22,10 +22,10 @@ export default function Problema() {
           <div className="flex flex-col gap-2 rounded-[18px] bg-white px-6 py-5">
             <div className="flex flex-wrap justify-between gap-3">
               <span className="text-[19px] font-bold">{concorrente.nome}</span>
-              <span className="text-[15px] font-bold text-accent-dark">{concorrente.selo}</span>
+              <span className="text-[15px] font-bold text-roxo">{concorrente.selo}</span>
             </div>
-            <div className="flex items-center gap-2 text-base text-ink-soft">
-              <span className="font-bold text-navy">{concorrente.nota}</span>
+            <div className="flex items-center gap-2 text-base text-tinta-suave">
+              <span className="font-bold text-preto">{concorrente.nota}</span>
               <Stars cheias={concorrente.estrelas} className="h-4 w-4" />
               <span>({concorrente.total})</span>
             </div>
@@ -33,14 +33,14 @@ export default function Problema() {
 
           <div className="flex flex-col gap-2 rounded-[18px] bg-white px-6 py-5 opacity-75">
             <span className="text-[19px] font-bold">{voce.nome}</span>
-            <div className="flex items-center gap-2 text-base text-ink-soft">
-              <span className="font-bold text-navy">{voce.nota}</span>
+            <div className="flex items-center gap-2 text-base text-tinta-suave">
+              <span className="font-bold text-preto">{voce.nota}</span>
               <Stars cheias={voce.estrelas} className="h-4 w-4" />
               <span>({voce.total})</span>
             </div>
           </div>
 
-          <p className="px-1 text-sm text-ink-soft">{problema.legenda}</p>
+          <p className="px-1 text-sm text-tinta-suave">{problema.legenda}</p>
         </div>
       </div>
     </section>

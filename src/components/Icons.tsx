@@ -4,7 +4,7 @@ const STAR_PATH = 'M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.
 
 export function Star({ className = 'h-5 w-5', apagada = false }: IconProps & { apagada?: boolean }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className={`${className} ${apagada ? 'fill-[#C9D2DF]' : 'fill-star'}`}>
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={`${className} ${apagada ? 'fill-apagada' : 'fill-estrela'}`}>
       <path d={STAR_PATH} />
     </svg>
   )

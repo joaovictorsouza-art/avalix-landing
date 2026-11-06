@@ -2,20 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   TOKENS DA MARCA NEXUS: troque cores, raios e sombras AQUI.
+   Cores em "R G B" para o Tailwind conseguir aplicar transparência.
+   ============================================================ */
+:root {
+  --cor-preto: 5 3 12; /* #05030C */
+  --cor-roxo-escuro: 53 24 134; /* #351886 */
+  --cor-roxo: 101 50 239; /* #6532EF */
+  --cor-lilas: 145 104 242; /* #9168F2 */
+  --cor-lavanda: 230 221 240; /* #E6DDF0 */
+  --cor-branco: 255 255 255;
+
+  --cor-nevoa: 243 241 249; /* #F3F1F9 */
+  --cor-superficie: 17 12 34; /* #110C22 */
+  --cor-tinta-suave: 74 69 96; /* #4A4560 */
+  --cor-tinta-fraca: 176 170 196; /* #B0AAC4 */
+  --cor-apagada: 205 200 220; /* #CDC8DC */
+  --cor-estrela: 251 188 4; /* #FBBC04 */
+
+  --raio-botao: 14px;
+  --raio-card: 24px;
+  --sombra-flutuante: 0 16px 32px rgb(var(--cor-preto) / 0.4);
+  --sombra-brilho: 0 24px 64px rgb(var(--cor-roxo) / 0.3);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-navy font-sans text-[18px] text-navy antialiased;
+    @apply bg-preto font-sans text-[17px] text-preto antialiased md:text-[18px];
   }
   ::selection {
-    @apply bg-accent text-white;
+    @apply bg-roxo text-white;
   }
   a:focus-visible,
   button:focus-visible,
-  input:focus-visible {
-    outline: 3px solid theme('colors.star');
+  input:focus-visible,
+  summary:focus-visible {
+    outline: 3px solid theme('colors.lilas');
     outline-offset: 3px;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -28,7 +54,7 @@
 @layer components {
   /* Botões: afundam ao clicar; brilho no hover só em mouse */
   .btn {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-full font-bold no-underline;
+    @apply inline-flex items-center justify-center gap-2.5 rounded-botao text-center font-semibold no-underline;
     transition:
       transform 160ms cubic-bezier(0.23, 1, 0.32, 1),
       filter 200ms ease;
@@ -47,11 +73,35 @@
     }
   }
 
+  /* Botão "saiba mais" do design system: contorno lilás e letra espaçada */
+  .btn-contorno {
+    @apply btn border-[1.5px] border-lilas px-6 text-sm font-medium uppercase tracking-[0.16em];
+  }
+
+  /* Etiqueta do design system: pílula com ponto lilás */
+  .etiqueta {
+    @apply inline-flex w-fit items-center gap-2.5 rounded-full border border-lilas/40 bg-roxo-escuro/30 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-white;
+  }
+  .etiqueta::before {
+    content: '';
+    @apply h-2 w-2 shrink-0 rounded-full bg-lilas;
+  }
+
+  /* Sublinhado do design system: degradê de lavanda para roxo */
+  .sublinhado {
+    @apply h-1.5 w-[136px] rounded-full bg-gradient-to-r from-lavanda to-roxo;
+  }
+
+  /* Destaque do design system: Poppins espaçada */
+  .destaque {
+    @apply text-sm font-medium uppercase tracking-[0.28em];
+  }
+
   .titulo-xl {
-    @apply font-display text-[44px] font-extrabold leading-[0.98] tracking-[-0.045em] md:text-[64px] xl:text-[92px];
+    @apply font-display text-[36px] font-bold leading-[1.08] tracking-[-0.03em] md:text-[56px] xl:text-[68px];
   }
   .titulo-lg {
-    @apply font-display text-[36px] font-extrabold leading-[1.02] tracking-[-0.04em] md:text-[48px] xl:text-[60px];
+    @apply font-display text-[30px] font-bold leading-[1.12] tracking-[-0.025em] md:text-[42px] xl:text-[52px];
   }
   .container-site {
     @apply mx-auto w-full max-w-[1240px];
