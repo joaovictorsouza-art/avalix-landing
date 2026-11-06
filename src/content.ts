@@ -23,7 +23,7 @@ export const PRECOS = {
     criacaoGoogle: 199.9,
     otimizacaoGoogle: 59.9,
     diagnosticoInstagram: 39.9,
-    gestaoInstagram: 590, // PENDENTE: confirmar com João (590 x 500)
+    gestaoInstagram: 590,
     trafegoMeta: 590,
     landingPage: 697,
   },
@@ -43,7 +43,7 @@ export const contato = {
   whatsappExibicao: '(71) 99396-4051',
   // Mensagem que já vem escrita quando a pessoa abre o WhatsApp
   whatsappMensagem: 'Olá! Vi o site da Nexus e quero saber mais.',
-  instagramUsuario: 'nexus.inova', // PENDENTE: confirmar o @ (veio da imagem do design system)
+  instagramUsuario: 'nexus.inova',
   email: '[PLACEHOLDER: e-mail]', // PENDENTE: e-mail da Nexus
   cidade: 'Salvador, BA',
   regiao: 'Atendimento presencial em Salvador',
