@@ -38,7 +38,7 @@ export const contato = {
   // Mensagem que já vem escrita quando a pessoa abre o WhatsApp
   whatsappMensagem: 'Olá! Vi o site da Nexus e quero saber mais.',
   instagramUsuario: 'nexus.inova',
-  email: '[PLACEHOLDER: e-mail]', // PENDENTE: e-mail da Nexus
+  email: 'nexusinova.ssa@gmail.com',
   cidade: 'Salvador, BA',
   regiao: 'Atendimento presencial em Salvador',
 }
@@ -268,21 +268,19 @@ export const casos = {
     texto: 'menos tempo gasto no lançamento de notas fiscais.',
     detalhe: 'Numa empresa de varejo cliente, as notas passaram a ser lançadas por foto, com IA.',
   },
-  // PENDENTE: autorização do cliente antes de mostrar nome ou marca. Depois, troque os [colchetes].
-  // Barber Club Itaigara: landing page de 4 páginas (barbearia, charutaria, whisky, eventos), reels 3D e cartão NFC personalizado.
+  // Só entra aqui projeto com autorização do cliente.
+  // PENDENTE: autorização para mostrar também:
   // Ultragaz: brinde NFC em formato de mini botijão / ímã de geladeira que leva ao WhatsApp da revenda ou à avaliação no Google.
-  // Di Lucca (cantina/pizzaria, Pituba): proposta com IA no atendimento e NFC na mesa.
+  // Di Lucca (cantina/pizzaria, Pituba): IA no atendimento e NFC na mesa.
   projetos: [
-    { nome: '[Projeto 1: nome do cliente]', texto: '[Barbearia em Salvador: landing page, reels e cartão NFC personalizado]' },
-    { nome: '[Projeto 2: nome do cliente]', texto: '[Brinde NFC que leva ao WhatsApp da revenda ou à avaliação no Google]' },
-    { nome: '[Projeto 3: nome do cliente]', texto: '[Restaurante: IA no atendimento e NFC na mesa]' },
+    {
+      nome: 'Barber Club Itaigara',
+      texto: 'Landing page de 4 páginas (barbearia, charutaria, whisky e eventos), reels 3D e cartão NFC personalizado.',
+    },
   ],
-  // PENDENTE: textos reais dos clientes. Não invente.
-  depoimentos: [
-    { texto: '[Depoimento real do cliente]', autor: '[Nome e negócio]' },
-    { texto: '[Depoimento real do cliente]', autor: '[Nome e negócio]' },
-    { texto: '[Depoimento real do cliente]', autor: '[Nome e negócio]' },
-  ],
+  // PENDENTE: textos reais dos clientes. Não invente. A área só aparece quando houver depoimento aqui.
+  // Exemplo: { texto: 'O que o cliente disse', autor: 'Nome, negócio' }
+  depoimentos: [] as { texto: string; autor: string }[],
 }
 
 // ---------- Por que a Nexus ----------

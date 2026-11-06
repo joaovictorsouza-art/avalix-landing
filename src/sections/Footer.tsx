@@ -11,8 +11,9 @@ export default function Footer() {
         <a href={linkInstagram} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-lavanda hover:text-white">
           Instagram @{contato.instagramUsuario}
         </a>
-        {/* PENDENTE: e-mail da Nexus (src/content.ts). Quando houver, transformar em link mailto. */}
-        <span className="inline-flex min-h-11 items-center">{contato.email}</span>
+        <a href={`mailto:${contato.email}`} className="inline-flex min-h-11 items-center text-lavanda hover:text-white">
+          {contato.email}
+        </a>
       </div>
       {/* Marca em tamanho grande fechando a página (decorativa) */}
       <div

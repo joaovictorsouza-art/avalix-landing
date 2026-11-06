@@ -18,27 +18,26 @@ export default function Casos() {
               <p className="leading-relaxed text-lavanda">{destaque.detalhe}</p>
             </div>
           </div>
-
-          {/* PENDENTE: autorização do cliente. Nomes e textos em src/content.ts → casos.projetos */}
           <ul className="flex list-none flex-col gap-3 p-0">
             {casos.projetos.map((projeto, i) => (
-              <li key={i} className="flex flex-1 flex-col justify-center gap-1.5 rounded-card border-2 border-dashed border-lilas bg-nevoa p-6">
-                <h3 className="font-display text-lg font-semibold">{projeto.nome}</h3>
-                <p className="text-base leading-normal text-tinta-suave">{projeto.texto}</p>
+              <li key={i} className="flex flex-1 flex-col justify-center gap-3 rounded-card bg-nevoa p-8 sm:p-10">
+                <h3 className="font-display text-2xl font-bold tracking-[-0.02em]">{projeto.nome}</h3>
+                <p className="leading-relaxed text-tinta-suave">{projeto.texto}</p>
               </li>
             ))}
           </ul>
         </div>
-
-        {/* PENDENTE: textos reais dos clientes. Não inventar. Conteúdo em casos.depoimentos */}
-        <ul className="grid list-none gap-3 p-0 md:grid-cols-3">
+        {/* A área só aparece quando houver depoimento em casos.depoimentos */}
+        {casos.depoimentos.length > 0 && (
+          <ul className="grid list-none gap-3 p-0 md:grid-cols-3">
           {casos.depoimentos.map((depoimento, i) => (
-            <li key={i} className="flex flex-col gap-3 rounded-card border-2 border-dashed border-lilas p-6">
+            <li key={i} className="flex flex-col gap-3 rounded-card bg-nevoa p-6">
               <p className="leading-relaxed">{depoimento.texto}</p>
               <p className="text-[15px] font-semibold text-tinta-suave">{depoimento.autor}</p>
             </li>
           ))}
         </ul>
+        )}
       </div>
     </section>
   )
