@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://nexusinova.vercel.app/sitemap.xml
