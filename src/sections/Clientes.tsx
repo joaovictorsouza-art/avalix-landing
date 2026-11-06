@@ -5,7 +5,7 @@ export default function Clientes() {
   const { nomes } = clientes
 
   return (
-    <section id="clientes" className="bg-nevoa px-4 py-24 sm:px-6 lg:py-40">
+    <section id="clientes" className="bg-nevoa px-4 py-20 sm:px-6 lg:py-32">
       <div className="container-site flex flex-col gap-14">
         <h2 className="max-w-[40ch] font-display text-[24px] font-semibold leading-[1.3] tracking-[-0.02em] md:text-[30px] xl:text-[36px]">
           {clientes.introducao}{' '}
@@ -25,8 +25,8 @@ export default function Clientes() {
                 src={foto.src}
                 alt={foto.alt}
                 loading="lazy"
-                width={1200}
-                height={1600}
+                width={900}
+                height={1200}
                 className="block aspect-[4/5] w-full rounded-card object-cover object-[center_40%]"
               />
               <figcaption className="text-lg font-semibold">{foto.legenda}</figcaption>
