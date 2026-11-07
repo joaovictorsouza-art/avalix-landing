@@ -18,7 +18,6 @@ export const PRECOS = {
     otimizacaoGoogle: 59.9,
     diagnosticoInstagram: 39.9,
     gestaoInstagram: 590,
-    trafego: 590,
     landingPage: 697,
   },
 }
@@ -72,9 +71,9 @@ export const hero = {
   titulo: 'Seu negócio aparecendo, sendo bem avaliado e vendendo mais.',
   tituloDestaque: 'Todo mês.',
   subtitulo:
-    'Google, Instagram, anúncios, site e automação com IA nas mãos de um parceiro só, aqui em Salvador. Você cuida do balcão. A gente cuida do digital.',
+    'Google, Instagram, NFC, site e automação com IA nas mãos de um parceiro só, aqui em Salvador. Você cuida do balcão. A gente cuida do digital.',
   linkSecundario: 'Ver preços',
-  conexoes: ['Google', 'Instagram', 'Anúncios', 'Site', 'IA'],
+  conexoes: ['Google', 'Instagram', 'NFC', 'Site', 'IA'],
 }
 
 // ---------- Problema ----------
@@ -98,7 +97,7 @@ export const servicos = {
     {
       icone: 'google' as const,
       titulo: 'Google',
-      texto: 'Perfil da empresa completo e mais avaliações. Com o cartão ou totem NFC, o cliente satisfeito avalia em segundos.',
+      texto: 'Perfil da empresa completo para você aparecer melhor nas buscas e receber mais avaliações.',
     },
     {
       icone: 'instagram' as const,
@@ -106,9 +105,9 @@ export const servicos = {
       texto: 'Gestão completa, a partir de 2 Reels e 4 carrosséis por mês e stories 5 vezes por semana.',
     },
     {
-      icone: 'anuncios' as const,
-      titulo: 'Tráfego pago',
-      texto: 'Anúncios no Instagram e no Google para levar seu negócio a quem ainda não te conhece, com otimização e relatório.',
+      icone: 'nfc' as const,
+      titulo: 'Cartões e totens NFC',
+      texto: 'O cliente satisfeito aproxima o celular e avalia seu negócio no Google em segundos, sem app e sem QR code.',
     },
     {
       icone: 'site' as const,
@@ -142,7 +141,7 @@ export const comoFunciona = {
     {
       icone: 'gestao' as const,
       titulo: 'Gestão mensal',
-      texto: 'Todo mês a gente cuida dos posts, dos anúncios e das avaliações.',
+      texto: 'Todo mês a gente cuida dos posts, dos stories e das avaliações.',
     },
     {
       icone: 'reuniao' as const,
@@ -218,7 +217,6 @@ export const avulsos = {
   titulo: 'Preços sem surpresa.',
   seloComece: 'Comece por aqui',
   botao: 'Quero este',
-  aviso: 'Verba de anúncios paga pelo cliente direto ao Meta/Google.',
   proposta: {
     titulo: 'Precisa de mais de um serviço?',
     texto: 'Montamos propostas exclusivas, com alto custo-benefício na compra de mais de um serviço. Cada pacote é feito sob medida para a sua empresa. Fale com a gente.',
@@ -233,8 +231,7 @@ export const avulsos = {
     avulso('Otimização de perfil no Google', 'Auditoria, correções, palavras-chave, descrição, fotos e plano de avaliações.', reais(PRECOS.avulsos.otimizacaoGoogle)),
     avulso('Diagnóstico de Instagram via IA', 'Análise do perfil feita com IA: bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.avulsos.diagnosticoInstagram)),
     avulso('Gestão completa de Instagram', 'A partir de 2 Reels + 4 carrosséis/mês e stories 5x/semana.', `${reais(PRECOS.avulsos.gestaoInstagram)}/mês`),
-    avulso('Tráfego pago', 'Campanhas no Meta e no Google, criativos, otimização semanal e relatório.', `${reais(PRECOS.avulsos.trafego)}/mês`),
-    avulso('Landing page', 'Textos, botão de WhatsApp, Pixel e 1 ano de hospedagem.', reais(PRECOS.avulsos.landingPage)),
+    avulso('Landing page', 'Textos, botão de WhatsApp e 1 ano de hospedagem.', reais(PRECOS.avulsos.landingPage)),
     avulso('Automação com IA', 'Soluções sob medida para atendimento e processos.', 'Sob consulta'),
   ],
 }
@@ -290,12 +287,12 @@ export const porQue = {
   motivos: [
     { titulo: 'Atendimento presencial em Salvador', texto: 'A gente vai até a sua loja.' },
     { titulo: 'Tecnologia própria', texto: 'NFC e IA a serviço do seu negócio.' },
-    { titulo: 'Tudo no mesmo lugar', texto: 'Google, Instagram, anúncios e site conversando entre si.' },
+    { titulo: 'Tudo no mesmo lugar', texto: 'Google, Instagram, site e IA conversando entre si.' },
   ],
   comparacao: {
     separado: {
       titulo: 'Contratando separado',
-      itens: ['Designer', 'Gestor de tráfego', 'Social media', 'Desenvolvedor'],
+      itens: ['Designer', 'Especialista em Google', 'Social media', 'Desenvolvedor'],
       resumo: 'Quatro conversas, quatro cobranças e ninguém olhando o todo.',
     },
     nexus: {
@@ -314,10 +311,6 @@ export const duvidas = {
     {
       pergunta: 'Tem fidelidade?',
       resposta: 'Não. A Nexus não tem fidelidade.',
-    },
-    {
-      pergunta: 'A verba dos anúncios está inclusa?',
-      resposta: 'Não. A verba é paga por você direto ao Meta ou ao Google. A Nexus cuida das campanhas.',
     },
     {
       pergunta: 'Em quanto tempo vejo resultado?',

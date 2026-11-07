@@ -42,8 +42,6 @@ export default function Avulsos() {
           ))}
         </ul>
 
-        <p className="text-[15px] leading-relaxed text-tinta-suave">{avulsos.aviso}</p>
-
         {/* Pacotes não têm preço no site: são montados para cada empresa pelo WhatsApp */}
         <div className="flex flex-wrap items-center justify-between gap-x-12 gap-y-7 rounded-card bg-roxo-escuro p-8 text-white shadow-brilho sm:p-12">
           <div className="flex flex-[1_1_420px] flex-col gap-4">

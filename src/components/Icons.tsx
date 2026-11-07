@@ -84,11 +84,11 @@ const ICONES = {
       <circle cx="17.5" cy="6.5" r="0.6" />
     </>
   ),
-  anuncios: (
+  nfc: (
     <>
-      <path d="M4 10v4a1 1 0 0 0 1 1h3l9 4.5v-15L8 9H5a1 1 0 0 0-1 1z" />
-      <path d="M8 15l1.5 5h2.5l-1.3-4" />
-      <path d="M20 10v4" />
+      <path d="M6 8.5a5 5 0 0 1 0 7" />
+      <path d="M9.5 6a9 9 0 0 1 0 12" />
+      <path d="M13 3.5a13 13 0 0 1 0 17" />
     </>
   ),
   site: (
