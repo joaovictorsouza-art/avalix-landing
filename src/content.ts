@@ -11,8 +11,8 @@ export const PRECOS = {
   cartaoGoogle: 79.9,
   cartaoPersonalizado: 119.9,
   totemPersonalizado: 149.9,
-  criacaoGoogle: 199.9,
-  otimizacaoGoogle: 59.9,
+  googleMeuNegocio: 199.9,
+  diagnosticoInstagram: 39.9,
   landingPage: 697,
 }
 
@@ -148,24 +148,53 @@ export const comoTrabalhamos = {
 }
 
 // ---------- Preços ----------
-export type ItemPreco = { nome: string; descricao: string; preco: string; mensagemWhatsApp: string }
+export type ItemPreco = {
+  nome: string
+  descricao: string
+  preco: string
+  mensagemWhatsApp: string
+  /** Texto pequeno antes do preço, ex.: "a partir de" */
+  antes?: string
+  /** Texto pequeno depois do preço, ex.: "único" */
+  depois?: string
+}
 
-function item(nome: string, descricao: string, preco: string): ItemPreco {
-  return { nome, descricao, preco, mensagemWhatsApp: `Olá! Vi o site da Nexus e quero saber mais sobre: ${nome}.` }
+function item(nome: string, descricao: string, preco: string, extra: { antes?: string; depois?: string } = {}): ItemPreco {
+  return { nome, descricao, preco, mensagemWhatsApp: `Olá! Vi o site da Nexus e quero saber mais sobre: ${nome}.`, ...extra }
 }
 
 export const precos = {
   rotulo: 'Preços',
   titulo: 'Preços sem surpresa.',
   botao: 'Quero',
-  itens: [
-    item('Cartão NFC Google', 'Avaliação no Google por aproximação, link testado no balcão.', reais(PRECOS.cartaoGoogle)),
-    item('Cartão NFC personalizado', 'Com a identidade visual do seu negócio.', reais(PRECOS.cartaoPersonalizado)),
-    item('Totem NFC personalizado', 'Totem de balcão com a sua marca.', reais(PRECOS.totemPersonalizado)),
-    item('Criação de perfil no Google', 'Cadastro completo, categorias, serviços, horários, fotos e verificação.', reais(PRECOS.criacaoGoogle)),
-    item('Otimização de perfil no Google', 'Auditoria, palavras-chave, descrição, fotos e plano de avaliações.', reais(PRECOS.otimizacaoGoogle)),
-    item('Landing page', 'Textos, botão de WhatsApp e 1 ano de hospedagem.', reais(PRECOS.landingPage)),
-    item('Automação com IA', 'Sob medida para o atendimento e os processos.', 'Sob consulta'),
+  grupos: [
+    {
+      nome: 'NFC',
+      itens: [
+        item('Cartão NFC Google', 'Avaliação no Google por aproximação, link testado no balcão.', reais(PRECOS.cartaoGoogle)),
+        item('Cartão NFC personalizado', 'Com a identidade visual do seu negócio.', reais(PRECOS.cartaoPersonalizado)),
+        item('Totem NFC personalizado', 'Totem de balcão com a sua marca.', reais(PRECOS.totemPersonalizado)),
+      ],
+    },
+    {
+      nome: 'Google e Instagram',
+      itens: [
+        item(
+          'Google Meu Negócio',
+          'Criação ou otimização do perfil: cadastro completo, categorias, serviços, horários, fotos, palavras-chave, descrição, plano de avaliações e acompanhamento da verificação.',
+          reais(PRECOS.googleMeuNegocio),
+          { depois: 'único' },
+        ),
+        item('Diagnóstico de Instagram via IA', 'Análise do perfil feita com IA: bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.diagnosticoInstagram), { depois: 'único' }),
+      ],
+    },
+    {
+      nome: 'Sites e IA',
+      itens: [
+        item('Landing page', 'Página com textos, botão de WhatsApp, Pixel e 1 ano de hospedagem.', reais(PRECOS.landingPage), { antes: 'a partir de', depois: 'único' }),
+        item('Automação com IA', 'Soluções sob medida para o atendimento e os processos da empresa.', 'Sob consulta'),
+      ],
+    },
   ],
   proposta: {
     titulo: 'Mais de um serviço?',
@@ -234,7 +263,7 @@ export const duvidas = {
     { pergunta: 'Em quanto tempo vejo resultado?', resposta: 'Depende de como sua empresa está hoje. Por isso começamos pelo diagnóstico e acompanhamos a evolução nas reuniões de resultado.' },
     { pergunta: 'Atendem fora de Salvador?', resposta: 'O foco é Salvador e região, com atendimento presencial. Fora daqui, dá para atender à distância.' },
     { pergunta: 'Como funciona o cartão NFC?', resposta: 'O cliente aproxima o celular do cartão ou do totem e a avaliação do seu negócio abre no Google. Não precisa de app. A gente testa o link no seu balcão.' },
-    { pergunta: 'Posso começar só com um serviço?', resposta: 'Pode. Dá para começar pelo cartão NFC ou pela otimização do Google, por exemplo. Depois, se fizer sentido, montamos uma proposta com mais serviços.' },
+    { pergunta: 'Posso começar só com um serviço?', resposta: 'Pode. Dá para começar pelo cartão NFC ou pelo Google Meu Negócio, por exemplo. Depois, se fizer sentido, montamos uma proposta com mais serviços.' },
   ],
 }
 

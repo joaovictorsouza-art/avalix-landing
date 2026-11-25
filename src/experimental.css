@@ -724,9 +724,42 @@ body {
     justify-content: flex-end;
   }
 }
-@media (min-width: 1280px) {
-  .lista-precos {
-    grid-template-columns: 1fr 1fr;
-    column-gap: 56px;
+.grupos-precos {
+  display: grid;
+  gap: 44px;
+}
+.grupo-precos {
+  display: grid;
+  gap: 16px;
+}
+.preco-valor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 8px;
+  white-space: nowrap;
+}
+.preco-valor span {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.preco-valor small {
+  font-size: 14px;
+  color: rgb(var(--cor-tinta-fraca));
+}
+@media (min-width: 768px) {
+  .preco-valor {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+@media (min-width: 1024px) {
+  .grupo-precos {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 40px;
+  }
+  .grupo-precos .destaque {
+    padding-top: 20px;
   }
 }

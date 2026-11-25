@@ -11,26 +11,37 @@ export default function Precos() {
           <div className="sublinhado rv" />
         </div>
 
-        <ul className="lista-precos rv">
-          {precos.itens.map((item) => (
-            <li key={item.nome} className="linha-preco">
-              <div className="min-w-0 flex-1">
-                <h3 className="font-semibold leading-snug">{item.nome}</h3>
-                <p className="mt-1 text-[15px] leading-snug text-tinta-fraca">{item.descricao}</p>
-              </div>
-              <p className="shrink-0 whitespace-nowrap font-display text-xl font-bold tracking-[-0.02em]">{item.preco}</p>
-              <a
-                href={linkWhatsApp(item.mensagemWhatsApp)}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${precos.botao}: ${item.nome}`}
-                className="link-preco"
-              >
-                {precos.botao} <span aria-hidden="true">›</span>
-              </a>
-            </li>
+        <div className="grupos-precos">
+          {precos.grupos.map((grupo) => (
+            <div key={grupo.nome} className="grupo-precos rv">
+              <h3 className="destaque text-lilas">{grupo.nome}</h3>
+              <ul className="lista-precos">
+                {grupo.itens.map((item) => (
+                  <li key={item.nome} className="linha-preco">
+                    <div className="min-w-0 flex-1">
+                      <h4 className="font-semibold leading-snug">{item.nome}</h4>
+                      <p className="mt-1 max-w-[62ch] text-[15px] leading-snug text-tinta-fraca">{item.descricao}</p>
+                    </div>
+                    <p className="preco-valor">
+                      {item.antes && <small>{item.antes} </small>}
+                      <span>{item.preco}</span>
+                      {item.depois && <small> {item.depois}</small>}
+                    </p>
+                    <a
+                      href={linkWhatsApp(item.mensagemWhatsApp)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${precos.botao}: ${item.nome}`}
+                      className="link-preco"
+                    >
+                      {precos.botao} <span aria-hidden="true">›</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
 
         <div className="rv flex flex-wrap items-center justify-between gap-x-10 gap-y-6 rounded-card border border-lilas/40 bg-roxo-escuro/50 p-7 sm:p-10">
           <div className="flex flex-[1_1_380px] flex-col gap-3">
