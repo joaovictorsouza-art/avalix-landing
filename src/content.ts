@@ -13,8 +13,6 @@ export const PRECOS = {
   totemPersonalizado: 149.9,
   criacaoGoogle: 199.9,
   otimizacaoGoogle: 59.9,
-  diagnosticoInstagram: 39.9,
-  gestaoInstagram: 590,
   landingPage: 697,
 }
 
@@ -53,16 +51,16 @@ export const menu = [
 export const hero = {
   etiqueta: 'Soluções digitais e IA em Salvador',
   titulo: ['Eleve', 'o', 'patamar', 'da', 'sua', 'empresa.'],
-  subtitulo: 'Entre na era do digital e da IA com um parceiro só: automação com inteligência artificial, Google, Instagram, landing pages e NFC.',
+  subtitulo: 'Entre na era do digital e da IA com um parceiro só: automação com inteligência artificial, Google, landing pages e NFC.',
   botao: 'Conversar no WhatsApp',
   linkSecundario: 'Conhecer as soluções',
-  pilares: ['Automação com IA', 'Google', 'NFC', 'Instagram', 'Landing pages'],
+  pilares: ['Automação com IA', 'Google', 'NFC', 'Landing pages'],
 }
 
 // ---------- Apresentação ----------
 export const apresentacao = {
   rotulo: 'Quem é a Nexus',
-  titulo: 'Sua operação, seu Google e seu Instagram não se conversam.',
+  titulo: 'Sua operação, seu Google e seu site não se conversam.',
   texto:
     'Cada parte fica num lugar, e o tempo vai embora em tarefa repetida. A Nexus Inova junta essas peças: entende o seu negócio e coloca tecnologia para trabalhar onde faz diferença.',
   paraQuem: ['Barbearias', 'Restaurantes', 'Clínicas', 'Lojas', 'Prestadores de serviço'],
@@ -70,13 +68,15 @@ export const apresentacao = {
 
 // ---------- Soluções ----------
 export type Solucao = {
-  forma: 'ia' | 'google' | 'nfc' | 'instagram' | 'site'
-  icone: 'ia' | 'google' | 'nfc' | 'instagram' | 'site'
+  forma: 'ia' | 'google' | 'nfc' | 'site'
+  icone: 'ia' | 'google' | 'nfc' | 'site'
   rotulo: string
   titulo: string
   texto: string
   itens: string[]
   nota?: string
+  fotos?: { src: string; alt: string; tipo: string; cliente: string }[]
+  exemplo?: { texto: string; href: string }
   botao: string
   mensagemWhatsApp: string
 }
@@ -110,20 +110,16 @@ export const solucoes = {
       icone: 'nfc',
       rotulo: 'Cartão e totem NFC',
       titulo: 'O cliente aproxima o celular. A avaliação abre.',
-      texto: 'No balcão, no caixa ou na mesa. Sem app e sem QR code: quem saiu satisfeito avalia seu Google em segundos.',
-      itens: ['Cartão Google pronto para usar', 'Cartão ou totem com a sua marca', 'Link testado no seu balcão'],
+      texto: 'Sem app: quem saiu satisfeito avalia seu Google em segundos.',
+      itens: ['Cartão: na mão, vai até o cliente', 'Totem: fica na bancada, também com QR code', 'Feitos com a sua marca'],
+      fotos: [
+        { src: '/images/nfc-totem-barber-club.webp', alt: 'Totem NFC da Barber Club sobre a bancada, com QR code e convite para avaliar no Google', tipo: 'Totem NFC', cliente: 'Barber Club' },
+        { src: '/images/nfc-cartao-di-lucca.webp', alt: 'Mão segurando o cartão NFC vermelho da Di Lucca Pizza & Pasta', tipo: 'Cartão NFC', cliente: 'Di Lucca' },
+        { src: '/images/nfc-totem-sandubaria.webp', alt: 'Totem NFC da Sandubaria sobre a bancada, ao lado do cardápio', tipo: 'Totem NFC', cliente: 'Sandubaria' },
+        { src: '/images/nfc-cartao-gardini.webp', alt: 'Mão segurando o cartão NFC preto e dourado da Gardini', tipo: 'Cartão NFC', cliente: 'Gardini' },
+      ],
       botao: 'Quero o NFC',
-      mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero o cartão NFC de avaliação no Google.',
-    },
-    {
-      forma: 'instagram',
-      icone: 'instagram',
-      rotulo: 'Instagram e presença digital',
-      titulo: 'Um perfil que passa a confiança que sua empresa merece.',
-      texto: 'Da estratégia ao conteúdo, a gente faz tudo. Você só colabora com o que só você sabe.',
-      itens: ['Estratégia de posicionamento', 'A partir de 2 Reels e 4 carrosséis por mês', 'Stories 5 vezes por semana'],
-      botao: 'Falar sobre o Instagram',
-      mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero organizar o Instagram da minha empresa.',
+      mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero o cartão ou totem NFC de avaliação no Google.',
     },
     {
       forma: 'site',
@@ -132,7 +128,7 @@ export const solucoes = {
       titulo: 'Você está numa landing page da Nexus.',
       texto: 'Fazemos a da sua empresa no estilo que combina com o seu negócio: direta e leve, ou com efeitos como estes.',
       itens: ['Textos escritos por nós', 'Botão de WhatsApp em destaque', '1 ano de hospedagem incluso'],
-      nota: 'A do Barber Club Itaigara tem 4 páginas: barbearia, charutaria, whisky e eventos.',
+      exemplo: { texto: 'Ver o site que fizemos para o Barber Club', href: 'https://barber-club-itaigara.vercel.app/' },
       botao: 'Quero uma assim',
       mensagemWhatsApp: 'Olá! Vi o site da Nexus e quero uma landing page para a minha empresa.',
     },
@@ -168,8 +164,6 @@ export const precos = {
     item('Totem NFC personalizado', 'Totem de balcão com a sua marca.', reais(PRECOS.totemPersonalizado)),
     item('Criação de perfil no Google', 'Cadastro completo, categorias, serviços, horários, fotos e verificação.', reais(PRECOS.criacaoGoogle)),
     item('Otimização de perfil no Google', 'Auditoria, palavras-chave, descrição, fotos e plano de avaliações.', reais(PRECOS.otimizacaoGoogle)),
-    item('Diagnóstico de Instagram via IA', 'Bio, destaques, feed e posts a arquivar, em relatório.', reais(PRECOS.diagnosticoInstagram)),
-    item('Gestão completa de Instagram', 'A partir de 2 Reels + 4 carrosséis por mês e stories 5x por semana.', `${reais(PRECOS.gestaoInstagram)}/mês`),
     item('Landing page', 'Textos, botão de WhatsApp e 1 ano de hospedagem.', reais(PRECOS.landingPage)),
     item('Automação com IA', 'Sob medida para o atendimento e os processos.', 'Sob consulta'),
   ],
@@ -187,13 +181,13 @@ export const diferenciais = {
   titulo: 'Um parceiro só, em vez de quatro fornecedores.',
   itens: [
     { titulo: 'Presencial em Salvador', texto: 'A gente vai até a sua empresa.' },
-    { titulo: 'Tudo em um', texto: 'IA, Google, NFC, Instagram e site conversando entre si.' },
+    { titulo: 'Tudo em um', texto: 'IA, Google, NFC e site conversando entre si.' },
     { titulo: 'Tecnologia aplicada', texto: 'IA a serviço do seu negócio, não da moda.' },
     { titulo: 'Sem fidelidade', texto: 'Você fica porque está valendo a pena.' },
   ],
   separado: {
     titulo: 'Contratando separado',
-    itens: ['Designer', 'Especialista em Google', 'Social media', 'Desenvolvedor'],
+    itens: ['Designer', 'Especialista em Google', 'Especialista em IA', 'Desenvolvedor'],
     resumo: 'Quatro conversas, quatro cobranças e ninguém olhando o todo.',
   },
   nexus: {
@@ -216,7 +210,10 @@ export const projetos = {
   casos: [
     {
       nome: 'Barber Club Itaigara',
-      texto: 'Landing page de 4 páginas (barbearia, charutaria, whisky e eventos), reels 3D e cartão NFC personalizado.',
+      texto: 'Site com barbearia, charutaria e eventos, preços e agendamento online. No balcão, totem NFC com a marca da casa.',
+      imagem: { src: '/images/site-barber-club.webp', alt: 'Página inicial do site do Barber Club Itaigara' },
+      botao: 'Visitar o site',
+      href: 'https://barber-club-itaigara.vercel.app/',
     },
   ],
   introducaoClientes: 'Quem já confia na Nexus:',
@@ -235,7 +232,6 @@ export const duvidas = {
   itens: [
     { pergunta: 'Tem fidelidade?', resposta: 'Não. A Nexus não tem fidelidade.' },
     { pergunta: 'Em quanto tempo vejo resultado?', resposta: 'Depende de como sua empresa está hoje. Por isso começamos pelo diagnóstico e acompanhamos a evolução nas reuniões de resultado.' },
-    { pergunta: 'Preciso gravar vídeo?', resposta: 'Não. A gente faz tudo. Só precisamos da sua colaboração no dia a dia do negócio.' },
     { pergunta: 'Atendem fora de Salvador?', resposta: 'O foco é Salvador e região, com atendimento presencial. Fora daqui, dá para atender à distância.' },
     { pergunta: 'Como funciona o cartão NFC?', resposta: 'O cliente aproxima o celular do cartão ou do totem e a avaliação do seu negócio abre no Google. Não precisa de app. A gente testa o link no seu balcão.' },
     { pergunta: 'Posso começar só com um serviço?', resposta: 'Pode. Dá para começar pelo cartão NFC ou pela otimização do Google, por exemplo. Depois, se fizer sentido, montamos uma proposta com mais serviços.' },

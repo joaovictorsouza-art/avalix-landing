@@ -20,9 +20,17 @@ export default function Projetos() {
             </div>
           </div>
           {p.casos.map((caso) => (
-            <div key={caso.nome} className="rv flex flex-col justify-center gap-3 rounded-card bg-nevoa p-8 sm:p-10">
-              <h3 className="font-display text-2xl font-bold tracking-[-0.02em]">{caso.nome}</h3>
-              <p className="leading-relaxed text-tinta-suave">{caso.texto}</p>
+            <div key={caso.nome} className="rv flex flex-col overflow-hidden rounded-card bg-nevoa">
+              <a href={caso.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
+                <img src={caso.imagem.src} alt={caso.imagem.alt} loading="lazy" decoding="async" width={1200} height={675} className="block aspect-[16/9] w-full object-cover object-top" />
+              </a>
+              <div className="flex flex-1 flex-col gap-3 p-8 sm:p-10">
+                <h3 className="font-display text-2xl font-bold tracking-[-0.02em]">{caso.nome}</h3>
+                <p className="leading-relaxed text-tinta-suave">{caso.texto}</p>
+                <a href={caso.href} target="_blank" rel="noopener noreferrer" className="btn mt-2 min-h-12 w-fit bg-preto px-6 text-[15px] text-white">
+                  {caso.botao} <span aria-hidden="true">↗</span>
+                </a>
+              </div>
             </div>
           ))}
         </div>

@@ -1,9 +1,10 @@
 import { linkWhatsApp, solucoes, type Solucao } from '../content'
 import { Check, Icone } from '../components/Icons'
+import FaixaFotos from '../components/FaixaFotos'
 
 function Painel({ solucao, i }: { solucao: Solucao; i: number }) {
   return (
-    <article data-estacao={solucao.forma} data-campo-visivel className={`painel ${i % 2 ? 'painel-inverso' : ''}`}>
+    <article data-estacao={solucao.forma} data-campo-visivel className={`painel ${i % 2 ? 'painel-inverso' : ''} ${solucao.fotos ? 'painel-com-fotos' : ''}`}>
       <div className="painel-grade container-site">
         <div data-ancora className="painel-ancora">
           <Icone tipo={solucao.icone} className="so-sem-campo h-32 w-32 text-lilas" />
@@ -28,8 +29,14 @@ function Painel({ solucao, i }: { solucao: Solucao; i: number }) {
           <a href={linkWhatsApp(solucao.mensagemWhatsApp)} target="_blank" rel="noopener noreferrer" className="btn-contorno min-h-12 w-fit !px-4 text-white sm:!px-6">
             {solucao.botao} <span aria-hidden="true">›</span>
           </a>
+          {solucao.exemplo && (
+            <a href={solucao.exemplo.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 w-fit items-center gap-2 font-semibold text-lavanda underline underline-offset-[6px] hover:text-white">
+              {solucao.exemplo.texto} <span aria-hidden="true">↗</span>
+            </a>
+          )}
         </div>
       </div>
+      {solucao.fotos && <FaixaFotos fotos={solucao.fotos} rotulo="Cartões e totens NFC que já fizemos" />}
     </article>
   )
 }

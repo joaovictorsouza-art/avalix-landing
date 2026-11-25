@@ -6,7 +6,7 @@ import { criarFormas, type Forma, type NomeForma } from './formas'
  * envia os valores que mudam, e o laço para quando nenhuma seção mostra o campo.
  *
  * No HTML:
- * - data-estacao="n|espalhado|ia|google|instagram": a seção em que o campo assume a forma;
+ * - data-estacao="n|espalhado|ia|google|nfc|site": a seção em que o campo assume a forma;
  * - data-ancora (dentro da seção): a área do layout que a forma deve ocupar;
  * - data-alfa="0.4" (opcional): intensidade do campo naquela seção.
  */

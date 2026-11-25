@@ -4,7 +4,7 @@
  * a posição e a cor do pixel. Assim o N usa os mesmos degradês do logo.
  */
 
-export type NomeForma = 'n' | 'espalhado' | 'ia' | 'google' | 'nfc' | 'instagram' | 'site'
+export type NomeForma = 'n' | 'espalhado' | 'ia' | 'google' | 'nfc' | 'site'
 
 export type Forma = {
   /** x, y, z, r, g, b por partícula */
@@ -140,23 +140,6 @@ function desenharGoogle(c: CanvasRenderingContext2D) {
   }
 }
 
-/** Marca do Instagram desenhada em traços. */
-function desenharInstagram(c: CanvasRenderingContext2D) {
-  const k = 17
-  c.translate(200 - 12 * k, 200 - 12 * k)
-  c.scale(k, k)
-  c.lineWidth = 1.7
-  c.strokeStyle = degrade(c, 3, 21, 21, 3, [[0, ROXO], [0.5, LILAS], [1, LAVANDA]])
-  c.stroke(new Path2D('M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5z'))
-  c.beginPath()
-  c.arc(12, 12, 4.1, 0, Math.PI * 2)
-  c.stroke()
-  c.fillStyle = LAVANDA
-  c.beginPath()
-  c.arc(17.4, 6.6, 1.05, 0, Math.PI * 2)
-  c.fill()
-}
-
 /** Cartão NFC com as ondas de aproximação. */
 function desenharNfc(c: CanvasRenderingContext2D) {
   c.save()
@@ -275,11 +258,9 @@ export async function criarFormas(total: number, aspecto: number): Promise<Recor
   await pausa()
   const google: Forma = { dados: amostrar(desenharGoogle, total, 0.35), extensao: [0.72, 1], giro: 0 }
   await pausa()
-  const instagram: Forma = { dados: amostrar(desenharInstagram, total, 0.35), extensao: [0.95, 0.95], giro: 0 }
-  await pausa()
   const nfc: Forma = { dados: amostrar(desenharNfc, total, 0.35), extensao: [0.95, 0.85], giro: 0 }
   await pausa()
   const site: Forma = { dados: amostrar(desenharSite, total, 0.35), extensao: [0.84, 0.66], giro: 0 }
   await pausa()
-  return { n, espalhado, ia, google, nfc, instagram, site }
+  return { n, espalhado, ia, google, nfc, site }
 }

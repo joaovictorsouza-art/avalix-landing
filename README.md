@@ -39,7 +39,7 @@ src/
   index.css             ← tokens da marca (cores, raios, sombras)
   experimental.css      ← layout e animações
   campo/                ← campo de partículas (WebGL, sem biblioteca)
-    formas.ts           ← as formas: N, IA, Google, NFC, Instagram, site
+    formas.ts           ← as formas: N, IA, Google, NFC, site
     motor.ts            ← animação e rolagem
   sections/             ← uma seção por arquivo
 public/images/          ← fotos dos clientes
